@@ -1,0 +1,460 @@
+﻿
+@model bcquant.ModelView.AmbienteModelView
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="">
+
+    <style type="text/css">
+        li {
+            list-style-type: none;
+        }
+    </style>
+
+    <div class="wrapper ">
+
+        <div class="content" id="content">
+
+            <!-- Page Header -->
+            <div class="page_header">
+                <div class="pull-left">
+                    <span class="main-text">Ambiente</span>
+                </div>
+            </div>
+            <!-- /pageheader -->
+            <!--main content-->
+            <div class="main-content">
+
+                <form class="form" id="formBasico">
+
+                    @Html.HiddenFor(b => b.ambiente.CodAmbiente)
+
+                    <!-- inicio cadastro basico -->
+
+                    <div class="panel panel-piluku" id="dadosItem">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Ambiente</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Nome:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(e =>  e.ambiente.TbAmbienteBasicoCodAmbienteBasico)" id="@Html.NameFor(e =>  e.ambiente.TbAmbienteBasicoCodAmbienteBasico)">
+                                        <option value="">Nome</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Unidade Construtiva:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(e =>  e.ambiente.TbUcObraCodUcObra)" id="@Html.NameFor(e =>  e.ambiente.TbUcObraCodUcObra)">
+                                        <option value="">Unidade Construtiva</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Pavimento:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(e =>  e.ambiente.TbPavimentoUcCodPavimentoUc)" id="@Html.NameFor(e =>  e.ambiente.TbPavimentoUcCodPavimentoUc)">
+                                        <option value="">Pavimento</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Quantas vezes esse ambiente se repete no pavimento?:*</label>
+                                    @Html.TextBoxFor(e => e.ambiente.NumeroRepeticaoPavimento, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Quantas vezes esse ambiente se repete na Obra?:*</label>
+                                    @Html.TextBoxFor(e => e.ambiente.NumeroRepeticaoObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Observação?:*</label>
+                                    @Html.TextBoxFor(e => e.ambiente.ObsAmbiente, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="col-md-6">
+                                    <div class="form-group check-radio">
+                                        <label class="control-label">Posições deste ambiente que serão cadastradas ?</label>
+                                        <ul class="list-inline checkboxes-radio">
+                                            <li>
+                                                <input type="checkbox" name="@Html.NameFor(e =>  e.posicaoAmbiente.Posicao)" id="Piso" value="Piso"  />
+                                                <label for="Piso"><span></span>Piso</label>
+                                            </li>
+
+                                            <li>
+                                                <input type="checkbox" name="@Html.NameFor(e =>  e.posicaoAmbiente.Posicao)" id="Parede" value="Parede" />
+                                                <label for="Parede"><span></span>Parede</label>
+                                            </li>
+
+                                            <li>
+                                                <input type="checkbox" name="@Html.NameFor(e =>  e.posicaoAmbiente.Posicao)" id="Teto" value="Teto" />
+                                                <label for="Teto"><span></span>Teto</label>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="col-md-9">
+                                    <div class="form-group check-radio">
+                                        <label class="control-label">Tipo ?</label>
+                                        <ul class="list-inline checkboxes-radio">
+                                            <li>
+                                                <input type="radio" name="@Html.NameFor(e =>  e.posicaoAmbiente.Tipo)" id="Calculado" value="Calculado" checked />
+                                                <label for="Calculado"><span></span>Calculado</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="@Html.NameFor(e =>  e.posicaoAmbiente.Tipo)" id="Digitado" value="Digitado" />
+                                                <label for="Digitado"><span></span>Digitado</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- fim cadastro basico -->
+
+                    <!-- inicio cadastro de piso -->
+
+                    <div class="panel panel-piluku" id="div_piso" style="display:none">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Piso
+                                <span class="panel-options">
+                                    <a href="#" class="panel-minimize">
+                                        <i class="icon ti-angle-up"></i>
+                                    </a>
+                                </span>
+                            </h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-9">
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Nome:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Nome, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Largura:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Largura, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Comprimento:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Comprimento, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Comprimento a Descontar:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.ComprimentoADescontar, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Perímetro:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.PerimetroDoAmbiente, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Perímetro da Obra:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.PerimetroDaObra, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área a Descontar:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaADescontar, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área do Ambiente:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaDoAmbiente, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área da Obra:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaDaObra, new { @class = "form-control piso_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- fim cadastro de piso -->
+
+                    <!-- inicio cadastro de teto -->
+
+                    <div class="panel panel-piluku" id="div_teto" style="display:none">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Teto
+                            </h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-9">
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Nome:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Nome, new { @class = "form-control", @placeholder = "", @maxlength = 200, id = "testid1" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Largura:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Largura, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Comprimento:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Comprimento, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Comprimento a Descontar:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.ComprimentoADescontar, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Perímetro:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.PerimetroDoAmbiente, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Perímetro da Obra:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.PerimetroDaObra, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área do Ambiente:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaDoAmbiente, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área a Descontar:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaADescontar, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área da Obra:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaDaObra, new { @class = "form-control teto_calculo", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- fim cadastro de teto -->
+                    <!-- inicio cadastro de parede -->
+
+                    <div class="panel panel-piluku" id="div_parede" style="display:none">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Parede
+                            </h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-9">
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Nome:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Nome, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Largura:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Largura, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Comprimento:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.Comprimento, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Comprimento a Descontar:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.ComprimentoADescontar, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Perímetro:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.PerimetroDoAmbiente, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Perímetro da Obra:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.PerimetroDaObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área do Ambiente:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaDoAmbiente, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área a Descontar:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaADescontar, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Área da Obra:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.AreaDaObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group group-item">
+                                        <label class="control-label">Pé Direito:*</label>
+                                        @Html.TextBoxFor(e => e.posicaoAmbiente.PeDireito, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- fim cadastro de teto -->
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="submit" id="salvarItem" name="salvarItem" class="btn btn-success" value="Cadastrar" />
+                            <input type="submit" id="editarItem" name="editarItem" class="btn btn-success" value="Editar" style="display: none;" />
+                            <input type="button" id="cancelaEditar" name="cancelaEditar" class="btn btn-warning" value="Cancelar edição" style="display: none;" />
+
+                        </div>
+                    </div>
+
+
+                    <!-- fim panel-piluku -->
+                    <!-- ###################### inicio lista item ##################################-->
+                    <div class="panel panel-piluku" id="listaUsuario">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Listagem</h3>
+                        </div>
+
+                        <div class="panel-body" id="listagemItem">
+                            <div class="table-responsive">
+                                <table id="tb_listagemPedido" class="table table-bordered table-hover table-striped display">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th width="50px">Editar</th>
+                                            <th width="50px">Deletar</th>
+                                            <th width="100px">Inserir Pavimentos</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ###################### fim lista item  ##################################-->
+
+                </form>
+            </div>
+
+        </div>
+
+        <!-- fim content -->
+
+    </div>
+
+    <script src="~/util/formulas.js?v=2"></script>
+    <script src="~/js/Ambiente/Ambiente.js?v=2"></script>
+
+    <script type="text/javascript">
+        var redirecionamento ="@Url.Action("Start", "PavimentoObra")";
+    </script>
+
+</body>
+
+</html>

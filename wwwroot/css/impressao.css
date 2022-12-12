@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+*{
+	-moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+}
+
+/*Para imagens, videos, (...) responsivos*/
+img, embed, object, iframe, video {max-width: 100%; max-width: 100%;}
+.video-container{position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;}
+.video-container iframe, .video-container object, .video-container embed {position: absolute; top: 0; left: 0; width: 100%; height: auto;}
+
+.rounded-corners5 {
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px; 
+	box-shadow:0 2px 6px #666666; -webkit-box-shadow:0 2px 6px #666666; -moz-box-shadow:0 2px 6px #666666;
+	text-shadow:0px 0px 5px #59a0e0;
+	outline: 1px solid #0052a0; outline-offset: -2px; /*PARA BORDA SECUNDÁRIA*/
+}
+
+body{ font-family:'Trebuchet MS', Arial, Helvetica, sans-serif!important;}
+
+.fl{float:left;}
+.fr{float:right;}
+.w100{width:100%;}
+
+.content{padding: 25px; font-family:'Trebuchet MS', Arial, Helvetica, sans-serif!important;}
+
+p{padding: 2px 0;}
+.tx1{font-size: 16px;}
+.tx2{font-size: 15px;}
+.tx3{font-size: 14px;}
+.tx4{font-size: 13px;}
+.tx5{font-size: 12px;}
+.tx6{font-size: 11px;}
+
+.txr{text-align: right;}
+.txc{text-align: center;}
+
+.mainTable > tbody > tr > td{vertical-align:center; padding: 10px;}
+
+.border{border-bottom: 2px solid #000;}
+
+.info1{float: left; margin-right: 25px;}
+.info1 font{font-size: 12px;}
+.info1 p{font-size: 14px; font-weight: 600; margin: 3px 0;}
+
+.divisor{border-top: 1px dotted #000; padding-top: 10px; margin-top: 5px;}
+
+.listaItens{border: 1px solid #000; padding: 10px; margin:10px 0; text-align: center; font-size: 12px; float: left; width: 100%;}
+.listaItens thead{border-bottom: 1px solid #000; font-weight: bold; text-transform: uppercase;}
+.listaItens tr td{border-bottom: 1px solid #000;}
+.listaItens thead tr td:nth-child(1), .listaItens tbody tr td:nth-child(1){text-align: left;}
+.listaItens td{padding: 5px;}
+
+.tableAssinatura td{padding: 28px 46px 8px;}
+.tableAssinatura .assinatura{border-top: 2px solid #000; padding: 5px; font-size: 12px; text-align: center;}
+
+.recorteDaPagina{width: 100%; float: left; border-top: 2px #000 dashed; margin: 10px 0; display: block; height: 1px;}
+
+.linksSistema{background-color: #e8ebf1; padding: 10px;}
+.linksSistema a{color: #80609b; font-size: 12px; text-decoration: none;}
+.linksSistema a:hover{color: #000;}
+
+@media print {
+	.content{padding: 0;}
+	.linksSistema{display: none;}
+}
+
+	
+	
+	
+
+
+

@@ -1,0 +1,216 @@
+﻿
+@model bcquant.ModelView.ObraModelView
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="">
+
+    <script type="text/javascript">
+
+        jQuery(function () {
+            jQuery("#obra_Cep").mask("00000-000");
+            jQuery("#obra_NumeroObra").mask("00000");
+        });
+
+    </script>
+
+    <style type="text/css">
+        li {
+            list-style-type: none;
+        }
+    </style>
+
+    <div class="wrapper ">
+        <div class="content" id="content">
+
+            <!-- Page Header -->
+            <div class="page_header">
+                <div class="pull-left">
+                    <span class="main-text">Obra</span>
+                </div>
+            </div>
+            <!-- /pageheader -->
+            <!--main content-->
+            <div class="main-content">
+
+                <form class="form" id="formBasico">
+
+                    @Html.HiddenFor(b => b.obra.CodObra)
+
+                    <div class="panel panel-piluku" id="dadosItem">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Dados Pessoais</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Nome:*</label>
+
+                                    @Html.TextBoxFor(e => e.obra.NomeObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Descrição:*</label>
+
+                                    @Html.TextBoxFor(e => e.obra.DescricaoObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Área Construida:*</label>
+
+                                    @Html.TextBoxFor(e => e.obra.AreaConstruida, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Construtor:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.obra.TbConstrutorCodConstrutor)" id="@Html.NameFor(m => m.obra.TbConstrutorCodConstrutor)">
+                                        <option value="">Construtor</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Tipologia:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.obra.TbTipologiaCodTipologia)" id="@Html.NameFor(m => m.obra.TbTipologiaCodTipologia)">
+                                        <option value="">Tipologia</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div id="endereco_empresa" class="panel panel-piluku">
+
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Endere&ccedil;o
+                                    <span class="panel-options">
+                                        <a href="#" class="panel-minimize">
+                                            <i class="icon ti-angle-up"></i>
+                                        </a>
+                                    </span>
+                                </h3>
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="col-md-3">
+                                    <div class="form-group group-item ">
+                                        <label class="control-label">CEP*:</label>
+
+                                        @Html.TextBoxFor(e => e.obra.Cep, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group group-item ">
+                                        <label class="control-label" for="tb_plano_cod_plano">Estado*:</label>
+                                        <select class="name_search form-control" name="obra.EstadoObra" id="obra.EstadoObra">
+                                            <option value="">Escolha</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group group-item ">
+                                        <label class="control-label" for="tb_plano_cod_plano">Cidade*:</label>
+                                        <select class="name_search form-control" name="obra.CidadeObra" id="obra.CidadeObra">
+                                            <option value="">Escolha</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group group-item ">
+                                        <label class="control-label">Bairro*:</label>
+                                        @Html.TextBoxFor(e => e.obra.BairroObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group group-item ">
+                                        <label class="control-label">Endereço*:</label>
+                                        @Html.TextBoxFor(e => e.obra.RuaObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group group-item ">
+                                        <label class="control-label">N&uacute;mero*:</label>
+                                        @Html.TextBoxFor(e => e.obra.NumeroObra, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                    </div>
+                                </div>
+                          
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="submit" id="salvarItem" name="salvarItem" class="btn btn-success" value="Cadastrar" />
+                                    <input type="submit" id="editarItem" name="editarItem" class="btn btn-success" value="Editar" style="display: none;" />
+                                    <input type="button" id="cancelaEditar" name="cancelaEditar" class="btn btn-warning" value="Cancelar edição" style="display: none;" />
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- fim panel-piluku -->
+                        
+                    </div>
+
+
+                    <!-- ###################### inicio lista item ##################################-->
+                    <div class="panel panel-piluku" id="listaUsuario">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Lista de Construtores</h3>
+                        </div>
+                        <div class="panel-body" id="listagemItem">
+                            <div class="table-responsive">
+                                <table id="tb_listagemPedido" class="table table-bordered table-hover table-striped display">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th width="50px">Editar</th>
+                                            <th width="50px">Deletar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ###################### fim lista item  ##################################-->
+                  
+                </form>
+            </div>
+        </div>
+        <!-- fim content -->
+
+    </div>
+    <script src="~/util/cidade_estados.js?v=2"></script>
+
+    <script src="~/js/Obra/obra.js?v=2"></script>
+
+
+</body>
+
+</html>

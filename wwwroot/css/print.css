@@ -1,0 +1,70 @@
+.somenteImpressao{display: none;}
+
+.imprimirPagina .panel-heading{padding: 0;}
+.imprimirPagina blockquote{border:0; padding: 0; font-size: 12px;}
+.imprimirPagina p{margin-bottom: 5px;}
+.imprimirPagina .panel-body{padding: 5px;}
+.imprimirPagina .panel{margin-bottom: 0px;}
+.imprimirPagina .panel-piluku > .panel-heading h3{padding-top: 0; border-bottom: 2px #000 solid; padding-bottom: 4px; text-transform: uppercase;}
+.imprimirPagina .panel-heading{border:0!important;}
+.imprimirPagina .form-control{padding: 0; border:0; line-height: 20px;}
+.imprimirPagina .btn{display: none!important;}
+
+.imprimirPagina #tb_listagemPedido tr th:nth-child(1),
+.imprimirPagina #tb_listagemPedido tr td:nth-child(1),
+.imprimirPagina #tb_listagemPedido tr th:nth-child(7),
+.imprimirPagina #tb_listagemPedido tr td:nth-child(7),
+.imprimirPagina #tb_listagemPedido tr th:nth-child(8),
+.imprimirPagina #tb_listagemPedido tr td:nth-child(8){display: none;}
+
+.imprimirPagina .wrapper{min-height: auto;}
+
+.imprimirPagina .table > tbody > tr > td{padding: 2px 5px;}
+.imprimirPagina .table > thead:first-child > tr:first-child > th{padding: 0 5px;}
+.imprimirPagina .table > tbody > tr > td{font-weight: normal; font-size: 11px; line-height: 15px;}
+
+.imprimirPagina .left-bar, .imprimirPagina .top-bar {display: none!important;}
+.imprimirPagina #content{margin-left: 0;}
+.imprimirPagina .page_header, .imprimirPagina #dadosPesquisaCliente{display: none!important;}
+
+#linkImprimirPedido, #linkVoltarParaPedidos, #linkNovoPedidos{display: none;}
+
+
+@media print {
+	.somenteImpressao{display: block;}
+	
+	#linkImprimirPedido, #linkVoltarParaPedidos,#linkNovoPedidos{display: none!important;}
+	
+	#dadosPedido{display: none!important;}
+
+	.print_marca{width: 22%; padding-right: 5px; float: left;}
+	.print_marca img{max-width: 100%;}
+	#print_endereco{width: 43%; float: left; text-align: left; padding-left: 10px;}
+	#print_endereco h5{font-size: 12px!important;}
+	#print_endereco h6{font-size: 10px!important; margin-top: 4px;}
+	#print_contatos{width: 35%; padding-left: 2%; text-align: right; float: right;}
+
+	.print_separador{width: 100%; float: right; height: 2px; background-color: #666;}
+
+	#detalhesPedido{display: none!important;}
+
+	.print_assinatura{width: 44%; margin: 0 3%; border-top: 1px solid #000; margin-top: 40px; float: left; padding-top: 5px; text-align: center;}
+
+	.linhaRecorte{width: 100%; float: left; height: 1px; display: block; border-bottom: 1px dashed #000; margin: 5px 0;}
+
+	.letrasPequenas{font-size: 10px; color: #666; float: left; margin-top: 8px;}
+
+	.break { page-break-before: always; }
+
+	#dadosCliente, #listaItens{display: block!important;}
+
+	.imprimirPagina .resumoPedido p{float: left;}
+	.print_valorPedido, .print_descPedido, .print_pgtoPedido{width: 35%;}
+	.print_finalPedido{width: 30%;}
+	.print_pendentePedido{width: 65%;}
+
+	.nome_cliente{float: left; margin-right: 30px;}
+	.telefone_email{float: right;}
+
+	.imprimirPagina #listaItens table tbody tr:last-child{display: none;}
+}

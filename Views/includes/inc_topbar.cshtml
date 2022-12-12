@@ -1,0 +1,48 @@
+<script>
+    function verificaSessao() {
+        redireciona('view/logout/logout.php');
+    }
+
+</script>
+<div class="overlay"></div>
+
+<div class="top-bar">
+    <nav class="navbar navbar-default top-bar">
+        <div class="menu-bar-mobile" id="open-left">
+            <i class="ti-menu"></i>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right top-elements">
+
+            <li class="piluku-dropdown dropdown">
+
+                <a href="#" class="dropdown-toggle avatar_width" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="avatar-holder">
+                        <!--<img src="../assets/images/avatar.jpeg" alt="">-->
+                        <i class="ion-android-settings " aria-hidden="true"></i>
+                    </span>
+                    <span class="avatar_info">
+
+                        @*<?php  $dadosUsuario = json_decode($_SESSION['usuario_logado']); echo $dadosUsuario[0]->nome_usuario; //aqui eu decodifico os dados do usuario na sessão e mostro no top o nome do usuario  ?></span>*@
+                    
+                        <span class="drop-icon">
+                        <!-- <i class="ion ion-chevron-down"></i> -->
+                    </span>
+                </a>
+                <ul class="dropdown-menu dropdown-piluku-menu  animated fadeInUp wow avatar_drop neat_drop dropdown-right" data-wow-duration="1500ms" role="menu">
+                    <li>
+
+                        @*<a href="#" onclick="redireciona('view/contato/contato.php');"> <i class="fa fa-life-ring"></i>Ajuda</a>*@
+
+                    </li>
+                    <li>
+                        <a href="javascript:(verificaSessao('view/logout/logout.php'));" class="logout_button"><i class="ion-power"></i>Sair</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</div>

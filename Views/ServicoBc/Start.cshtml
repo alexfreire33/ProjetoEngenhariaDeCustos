@@ -1,0 +1,139 @@
+﻿
+@model bcquant.ModelView.ServicoBcModelView
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="">
+
+    <style type="text/css">
+        li {
+            list-style-type: none;
+        }
+    </style>
+
+    <div class="wrapper ">
+        <div class="content" id="content">
+
+            <!-- Page Header -->
+            <div class="page_header">
+                <div class="pull-left">
+                    <span class="main-text">Serviço da Bc</span>
+                </div>
+            </div>
+            <!-- /pageheader -->
+            <!--main content-->
+            <div class="main-content">
+
+                <form class="form" id="formBasico">
+
+                    @Html.HiddenFor(b => b.servicoBc.CodServicoBc)
+
+                    <div class="panel panel-piluku" id="dadosItem">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Inserir Serviço da Bc</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Descrição:*</label>
+                                    @Html.TextBoxFor(e => e.servicoBc.DescricaoServicoBc, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Observação:*</label>
+                                    @Html.TextBoxFor(e => e.servicoBc.ObservacaoServicoBc, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Código interno :*</label>
+                                    @Html.TextBoxFor(e => e.servicoBc.TbPosicaoCodPosicao, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Grupo de Serviço:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.servicoBc.TbGrupoServicoCodGrupoServico)" id="@Html.NameFor(m => m.servicoBc.TbGrupoServicoCodGrupoServico)">
+                                        <option value="0">Grupo de Insumo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Unidade de Medida:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.servicoBc.TbUnidadeMedidaCodUnidadeMedida)" id="@Html.NameFor(m => m.servicoBc.TbUnidadeMedidaCodUnidadeMedida)">
+                                        <option value="0">Unidade de Medida</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Posição:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.servicoBc.TbPosicaoCodPosicao)" id="@Html.NameFor(m => m.servicoBc.TbPosicaoCodPosicao)">
+                                        <option value="0">Posição</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="submit" id="salvarItem" name="salvarItem" class="btn btn-success" value="Cadastrar" />
+                                    <input type="submit" id="editarItem" name="editarItem" class="btn btn-success" value="Editar" style="display: none;" />
+                                    <input type="button" id="cancelaEditar" name="cancelaEditar" class="btn btn-warning" value="Cancelar edição" style="display: none;" />
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- fim panel-piluku -->
+
+                    </div>
+
+
+                    <!-- ###################### inicio lista item ##################################-->
+                    <div class="panel panel-piluku" id="listaUsuario">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Listagem</h3>
+                        </div>
+                        <div class="panel-body" id="listagemItem">
+                            <div class="table-responsive">
+                                <table id="tb_listagemPedido" class="table table-bordered table-hover table-striped display">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th width="50px">Editar</th>
+                                            <th width="50px">Deletar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ###################### fim lista item  ##################################-->
+
+                </form>
+            </div>
+        </div>
+        <!-- fim content -->
+
+    </div>
+
+    <script src="~/js/ServicoBc/ServicoBc.js?v=2"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+﻿
+@model bcquant.ModelView.LevantamentoModelView
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="">
+
+    <style type="text/css">
+        li {
+            list-style-type: none;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('input[name="@Html.NameFor(m => m.levantamento.DataInicioLevantamento)"]').datepicker({
+                format: "dd/mm/yyyy",
+                language: "pt-BR"
+            });
+
+            $('input[name="@Html.NameFor(m => m.levantamento.DataConclusaoLevantamento)"]').datepicker({
+                format: "dd/mm/yyyy",
+                language: "pt-BR"
+            });
+        });
+    </script>
+
+    <div class="wrapper ">
+        <div class="content" id="content">
+
+            <!-- Page Header -->
+            <div class="page_header">
+                <div class="pull-left">
+                    <span class="main-text">Levantamento</span>
+                </div>
+            </div>
+            <!-- /pageheader -->
+            <!--main content-->
+            <div class="main-content">
+
+                <form class="form" id="formBasico">
+
+                    @Html.HiddenFor(b => b.levantamento.CodLevantamento)
+
+                    <div class="panel panel-piluku" id="dadosItem">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Inserir</h3>
+                        </div>
+                        <div class="panel-body">
+
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Tipo de levantamento:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.levantamento.TbTiposLevantamentoCodTiposLevantamento)" id="@Html.NameFor(m => m.levantamento.TbTiposLevantamentoCodTiposLevantamento)">
+                                        <option value="">Tipo de levantamento</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Obra:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.levantamento.TbObraCodObra)" id="@Html.NameFor(m => m.levantamento.TbObraCodObra)">
+                                        <option value="">Obra</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Unidade Construtiva:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.levantamento.TbUcObraCodUcObra)" id="@Html.NameFor(m => m.levantamento.TbUcObraCodUcObra)">
+                                        <option value="">Grupo de Insumo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group group-item ">
+                                    <label class="control-label" for="fornecedor">Status:*</label>
+                                    <select class="name_search form-control" name="@Html.NameFor(m => m.levantamento.TbStatusLevantamentoCodStatusLevantamento)" id="@Html.NameFor(m => m.levantamento.TbStatusLevantamentoCodStatusLevantamento)">
+                                        <option value="">Status</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Nome:*</label>
+                                    @Html.TextBoxFor(e => e.levantamento.NomeResponsavel, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Email:*</label>
+                                    @Html.TextBoxFor(e => e.levantamento.EmailResponsavel, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Telefone :*</label>
+                                    @Html.TextBoxFor(e => e.levantamento.TelefoneResponsavel, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Data de Início:*</label>
+                                    @Html.TextBoxFor(e => e.levantamento.DataInicioLevantamento, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Data de Conclusão:*</label>
+                                    @Html.TextBoxFor(e => e.levantamento.DataConclusaoLevantamento, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Versão:</label>
+                                    @Html.TextBoxFor(e => e.levantamento.NumeroVersaoLevantamento, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Observação:</label>
+                                    @Html.TextBoxFor(e => e.levantamento.ObservacaoLevantamento, new { @class = "form-control", @placeholder = "", @maxlength = 200 })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group group-item">
+                                    <label class="control-label">Imagemm :*</label>
+                                    <input type="file" name="arquivoImg" id="arquivoImg" />
+
+                                    @*@Html.TextBoxFor(e => e.levantamento.ImagemInsumo, new { @class = "form-control", @placeholder = "", @maxlength = 200, type = "file" })*@
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="submit" id="salvarItem" name="salvarItem" class="btn btn-success" value="Cadastrar" />
+                                    <input type="submit" id="editarItem" name="editarItem" class="btn btn-success" value="Editar" style="display: none;" />
+                                    <input type="button" id="cancelaEditar" name="cancelaEditar" class="btn btn-warning" value="Cancelar edição" style="display: none;" />
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- fim panel-piluku -->
+
+                    </div>
+
+
+                    <!-- ###################### inicio lista item ##################################-->
+                    <div class="panel panel-piluku" id="listaUsuario">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Listagem</h3>
+                        </div>
+                        <div class="panel-body" id="listagemItem">
+                            <div class="table-responsive">
+                                <table id="tb_listagemPedido" class="table table-bordered table-hover table-striped display">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Nome</th>
+                                            <th width="50px">Editar</th>
+                                            <th width="50px">Deletar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ###################### fim lista item  ##################################-->
+
+                </form>
+            </div>
+        </div>
+        <!-- fim content -->
+
+    </div>
+
+    <script src="~/js/Levantamento/Levantamento.js?v=2"></script>
+
+
+</body>
+
+</html>

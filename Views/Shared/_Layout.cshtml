@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+
+
+<head>
+
+
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - bcquant</title>*@
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" /> <!--320-->
+
+    <title>Grupo Inside - Gerenciador</title>
+
+    <link rel="shortcut icon" href="~/assets/favicon.png" type="image/x-icon">
+    <link rel="icon" href="~/assets/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href="~/assets/css/bootstrap.css">
+    <link rel='stylesheet' href="~/assets/css/material.css">
+    <link rel='stylesheet' href="~/assets/css/style.css">
+    <link rel='stylesheet' href="~/assets/css/sweet-alerts/sweetalert.css">
+    <link rel='stylesheet' href="~/assets/css/colorbox.css">
+
+    <link rel='stylesheet' href="~/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/print.css" />
+
+    <script src="~/assets/js/jquery.js"></script>
+    <script src="~/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="~/assets/js/form-elements.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/core.js"></script>
+    <script src="~/assets/js/sweet-alert/sweetalert.min.js"></script>
+    <script src="~/assets/js/wow.min.js"></script>
+    <script src="~/assets/js/jquery.loadmask.min.js"></script>
+    <script src="~/assets/js/jquery.accordion.js"></script>
+    <script src="~/assets/js/materialize.js"></script>
+    <script src="~/assets/js/bic_calendar.js"></script>
+    <script src="~/assets/js/select2.js"></script>
+    <script src="~/assets/js/jquery.multi-select.js"></script>
+    <script src="~/assets/js/bootstrap-filestyle.js"></script>
+    <script src="~/assets/js/bootstrap-datepicker.js"></script>
+    <script src="~/assets/js/bootstrap-colorpicker.js"></script>
+    <script src="~/assets/js/jquery.countTo.js"></script>
+    <script src="~/assets/js/jquery.dataTables.js"></script>
+    <script src="~/assets/js/bootstrap-datatables.js"></script>
+    <script src="~/assets/js/dataTables-custom.js"></script>
+    <script src="~/assets/js/mindmup-editabletable.js"></script>
+    <script src="~/assets/js/numeric-input-example.js"></script>
+    <script src="~/assets/js/dynamic-tables.js"></script>
+    <script src="~/assets/js/tooltip-custom.js"></script>
+    <script src="~/assets/js/jquery.colorbox.js"></script>
+    <script src="~/assets/js/jquery.mask.min.js"></script>
+    <script src="~/util/menu.js"></script>
+    <script src="~/util/moment_date.js"></script>
+    <script src="~/util/funcoes.js?v=2"></script>
+
+</head>
+<body>
+
+
+
+    <script>
+        jQuery(window).load(function () {
+            $('.piluku-preloader').addClass('hidden');
+        });
+    </script>
+    <div class="piluku-preloader text-center">
+        <!-- <div class="progress">
+            <div class="indeterminate"></div>
+        </div> -->
+        <div class="loader">Loading...</div>
+    </div>
+
+    <div class="left-bar ">
+        <div class="admin-logo">
+            <div class="logo-holder pull-left">
+                <img class="logo" src="~/assets/images/marca_grupoinside_vtbranca.png" alt="logo" />
+            </div>
+            <!-- logo-holder -->
+            <a href="#" class="menu-bar  pull-right"><i class="ti-menu"></i></a>
+        </div>
+        <!-- admin-logo -->
+        <ul class="list-unstyled menu-parent" id="mainMenu">
+
+            <li><a href="@Url.Action("Start", "AmbienteBasico")">Ambiente básico</a></li>
+            <li><a href="@Url.Action("Start", "Construtor")">Construtor</a></li>
+            <li><a href="@Url.Action("Start", "Cor")">Cor</a></li>
+            <li><a href="@Url.Action("Start", "Fabricante")">Fabricante</a></li>
+            <li><a href="@Url.Action("Start", "GrupoDeInsumo")">Grupo de Insumo</a></li>
+            <li><a href="@Url.Action("Start", "GrupoDeServico")">Grupo de Serviço</a></li>
+            <li><a href="@Url.Action("Start", "ItensDeLevantamento")">Itens de Levantamento</a></li>
+            <li><a href="@Url.Action("Start", "MateriaPrima")">Materia Prima</a></li>
+            <li><a href="@Url.Action("Start", "Pavimento")">Pavimento</a></li>
+            <li><a href="@Url.Action("Start", "Posicao")">Posição</a></li>
+            <li><a href="@Url.Action("Start", "TipoLevantamento")">Tipologia de Levantamento</a></li>
+            <li><a href="@Url.Action("Start", "Tipologia")">Tipologia</a></li>
+            <li><a href="@Url.Action("Start", "UnidadeConstrutiva")">Unidade Construtiva</a></li>
+            <li><a href="@Url.Action("Start", "UnidadeDeMedida")">Unidade de Medida</a></li>
+            <li><a href="@Url.Action("Start", "Levantamento")">Levantamento</a></li>
+
+        </ul>
+    </div>
+
+    @*<script src="~/util/funcoes.js?v=2"></script>*@
+
+
+    <!-- left-bar -->
+
+
+    <script>
+        function verificaSessao() {
+            redireciona('view/logout/logout.php');
+        }
+
+    </script>
+    <div class="overlay"></div>
+
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - bcquant</p>
+        </footer>
+    </div>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
